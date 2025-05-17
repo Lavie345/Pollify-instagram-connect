@@ -175,6 +175,11 @@
   </div>
 
   <script>
+    const votes = {
+  1: 543, // Aarohi
+  2: 327, // Meher
+  3: 507  // Sanika
+};
     function disableVoting() {
       document.querySelectorAll('.vote-btn').forEach(btn => {
         btn.disabled = true;
@@ -184,13 +189,17 @@
       });
     }
 
-    window.onload = () => {
-      if (localStorage.getItem('hasVoted')) {
-        disableVoting();
-        document.getElementById('confirmation').innerText = 'You have already voted.';
-      }
-    };
+  window.onload = () => {
+  // Show initial votes
+  document.getElementById('votes1').innerText = `Votes: ${votes[1]}`;
+  document.getElementById('votes2').innerText = `Votes: ${votes[2]}`;
+  document.getElementById('votes3').innerText = `Votes: ${votes[3]}`;
 
+  if (localStorage.getItem('hasVoted')) {
+    disableVoting();
+    document.getElementById('confirmation').innerText = 'You have already voted.';
+  }
+};
     function confirmVote(index) {
       if (localStorage.getItem('hasVoted')) return;
       const contestantName = document.querySelectorAll('.card h3')[index - 1].innerText;
@@ -201,17 +210,25 @@
     }
 
     function vote(index) {
-      localStorage.setItem('hasVoted', 'true');
-      disableVoting();
+  localStorage.setItem('hasVoted', 'true');
+  disableVoting();
 
-      const voteBtn = document.querySelectorAll('.vote-btn')[index - 1];
-      voteBtn.innerText = 'Voted!';
-      voteBtn.style.backgroundColor = '#28a745';
-      voteBtn.disabled = true;
+  const voteBtn = document.querySelectorAll('.vote-btn')[index - 1];
+  voteBtn.innerText = 'Voted!';
+  voteBtn.style.backgroundColor = '#28a745';
+  voteBtn.disabled = true;
 
-      document.getElementById('confirmation').innerText = 'Thank you for voting! Your vote has been recorded.';
+  // Increase vote count and update display
+  votes[index]++;
+  const voteDisplay = document.getElementById(`votes${index}`);
+  voteDisplay.innerText = `Votes: ${votes[index]}`;
+
+  // Add jump animation class
+  voteDisplay.classList.add('jump');
+  setTimeout(() => voteDisplay.classList.remove('jump'), 400);
+
+  document.getElementById('confirmation').innerText = 'Thank you for voting! Your vote has been recorded.';
     }
-
     const countDownDate = new Date("June 15, 2025 23:59:59").getTime();
     const countdownEl = document.getElementById("countdown");
 
