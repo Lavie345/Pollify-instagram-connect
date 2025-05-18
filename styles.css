@@ -1,264 +1,220 @@
-/* Reset and Base Styles */
+/* Base Reset */
 * {
-    border: none;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    background-color: #fafafa;
-    color: #262626;
-    font-size: 14px;
-    height: 100vh;
+  background-color: #fafafa;
+  color: #262626;
+  font-size: 14px;
+  min-height: 100vh;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
-h1 {
-    margin: 22px 0;
+h1 img {
+  width: 175px;
+  margin: 22px auto;
 }
 
+/* Layout */
 main {
-    height: 100vh;
-    margin: auto;
-    max-width: 935px;
+  max-width: 935px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Flex Utilities */
+/* Flex helpers */
 .flex {
-    display: flex;
+  display: flex;
 }
-
 .direction-column {
-    flex-direction: column;
+  flex-direction: column;
 }
-
 .justify-content-center {
-    justify-content: center;
+  justify-content: center;
 }
-
 .align-items-center {
-    align-items: center;
+  align-items: center;
 }
 
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-/* Panel Layouts */
-.panel {
-    background-color: white;
-    border: 1px solid #dbdbdb;
-    margin-bottom: 10px;
-    padding: 40px 40px;
-    width: 350px;
-}
-
-.panel.register {
-    padding: 20px;
-}
-
-#auth {
-    max-width: 350px;
-}
-
+/* Sections */
 #mobile {
-    max-width: 454px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 454px;
 }
-
 #mobile img {
-    height: 618px;
+  height: 618px;
+  display: block;
 }
 
-/* Form Styling */
+/* Panels */
+.panel {
+  background: white;
+  border: 1px solid #dbdbdb;
+  width: 350px;
+  margin-bottom: 10px;
+  padding: 40px 40px;
+}
+.panel.register {
+  padding: 20px;
+  text-align: center;
+}
+.panel.register p {
+  font-size: 14px;
+}
+.panel.register a {
+  color: #0095f6;
+  font-weight: bold;
+}
+
+/* Form */
 form {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-
-form .sr-only {
-    display: none;
-}
-
 form input {
-    background-color: #fafafa;
-    border: 1px solid #dbdbdb;
-    border-radius: 3px;
-    color: #262626;
-    margin-bottom: 8px;
-    padding: 9px 0 7px 8px;
-    width: 100%;
-    font-size: 12px;
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  padding: 9px 0 7px 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
 }
-
-form input::placeholder {
-    color: #8e8e8e;
-}
-
 form input:focus {
-    border: 1px solid #808080;
-    outline: none;
+  outline: none;
+  border-color: #a0a0a0;
 }
-
+form input::placeholder {
+  color: #8e8e8e;
+}
 form button {
-    background-color: #0095f6;
-    border-radius: 4px;
-    color: white;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 8px 0;
-    width: 100%;
-    margin-top: 10px;
-    cursor: pointer;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  padding: 8px 0;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
 }
-
 form button:disabled {
-    background-color: #b2dffc;
+  background-color: #b2dffc;
+  cursor: default;
 }
 
-/* Separator Styling */
+/* Separator */
 .separator {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 20px 0;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
 }
-
 .separator span {
-    flex: 1;
-    height: 1px;
-    background: #dbdbdb;
+  flex: 1;
+  height: 1px;
+  background-color: #dbdbdb;
 }
-
 .separator .or {
-    padding: 0 20px;
-    color: #8e8e8e;
-    font-weight: 500;
-    font-size: 13px;
+  padding: 0 20px;
+  color: #8e8e8e;
+  font-weight: 500;
+  font-size: 13px;
 }
 
-/* Facebook Login Styling */
+/* Facebook login */
 .login-with-fb {
-    width: 100%;
-    padding: 30px 20px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
-
+.login-with-fb img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
 .login-with-fb a {
-    color: #385185;
-    font-weight: 500;
-}
-
-.login-with-fb > a {
-    font-size: 12px;
-    color: #00376b;
-}
-
-/* Register Section */
-.register {
-    padding: 20px;
-    width: 350px;
-    text-align: center;
-}
-
-.register * {
-    font-size: 14px;
-}
-
-.register a {
-    color: #0095f6;
-    font-weight: bold;
-}
-
-.register p {
-    margin-right: 5px;
+  color: #385185;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 /* App Download */
 .app-download {
-    padding: 15px;
-    text-align: center;
+  text-align: center;
+  padding: 15px;
 }
-
 .app-download p {
-    padding: 10px 0;
+  margin-bottom: 10px;
 }
-
 .app-download img {
-    height: 40px;
-    margin: 0 5px;
-}
-
-/* Logo Styling */
-h1 img {
-    width: 175px;
-    margin: 22px auto;
+  height: 40px;
+  margin: 0 5px;
 }
 
 /* Footer */
 footer {
-    margin: 0 auto 30px auto;
-    max-width: 935px;
-    text-align: center;
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
 }
-
 footer ul {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
 }
-
 footer ul li {
-    margin: 0 10px 10px;
+  margin: 0 10px 8px;
 }
-
 footer ul li a {
-    color: #385185;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12px;
+  color: #737373;
+  font-size: 12px;
 }
-
 footer .copyright {
-    color: #808080;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12px;
+  font-size: 12px;
+  color: #8e8e8e;
 }
 
 /* Responsive */
-@media screen and (max-width: 767px) {
-    main {
-        margin: 30px auto 50px auto;
-    }
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    margin-top: 20px;
+    height: auto;
+  }
 
-    .panel {
-        border: none;
-        padding: 20px;
-        width: 100%;
-        box-shadow: none;
-    }
+  #mobile {
+    display: none;
+  }
 
-    .app-download img {
-        height: 30px;
-    }
+  .panel {
+    border: 1px solid transparent;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: none;
+  }
 
-    footer .copyright,
-    footer ul li a {
-        font-size: 13px;
-    }
+  .app-download img {
+    height: 30px;
+  }
 }
